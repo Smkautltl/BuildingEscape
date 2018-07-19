@@ -1,7 +1,7 @@
 // Fill out your copyright notice in the Description page of Project Settings.
 
 #include "PositionReport.h"
-
+#include "GameFramework/Actor.h"
 
 // Sets default values for this component's properties
 UPositionReport::UPositionReport()
@@ -18,6 +18,12 @@ UPositionReport::UPositionReport()
 void UPositionReport::BeginPlay()
 {
 	Super::BeginPlay();
+
+	FString ObjectName = GetOwner()->GetName();
+	FString ObjectPos = GetOwner()->GetActorLocation().ToString();
+
+	UE_LOG(LogTemp, Warning, TEXT("Position report started on %s it is at %s "), *ObjectName, *ObjectPos);
+
 
 	// ...
 	
