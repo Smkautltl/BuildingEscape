@@ -18,8 +18,6 @@ UOpenDoor::UOpenDoor()
 
 void UOpenDoor::OpenDoor()
 {
-
-	//Set the door rotation
 	Owner->SetActorRotation(FRotator(0.f, OpenAngle, 0.f));
 }
 
@@ -43,8 +41,7 @@ void UOpenDoor::TickComponent(float DeltaTime, ELevelTick TickType, FActorCompon
 {
 	Super::TickComponent(DeltaTime, TickType, ThisTickFunction);
 
-	//Poll the trigger volume every frame
-	//If the actorthatopens is in the volume 
+	//If the ActorThatOpens is in the volume 
 	if (PressurePlate->IsOverlappingActor(ActorThatOpens))
 	{
 		OpenDoor();
