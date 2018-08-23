@@ -15,3 +15,5 @@ BuildingEscape/BuildingEscape.VC.db
 *.VC.db
 BuildingEscape/BuildingEscape.VC.VC.opendb
 *.suo
+*.VC.opendb
+*.sln
