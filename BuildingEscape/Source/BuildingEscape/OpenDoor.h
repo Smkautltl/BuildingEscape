@@ -42,4 +42,7 @@ private:
 	float LastDoorOpenTime;
 	AActor* Owner;
 
+	//Returns mass in Kg
+	float GetTotalMassOfActorsOnPlate();
+
 };
