@@ -14,7 +14,6 @@ UOpenDoor::UOpenDoor()
 	// off to improve performance if you don't need them.
 	PrimaryComponentTick.bCanEverTick = true;
 
-	// ...
 }
 
 
@@ -33,7 +32,10 @@ void UOpenDoor::BeginPlay()
 {
 	Super::BeginPlay();
 	Owner = GetOwner();	
-
+	if (!PressurePlate)
+	{
+		UE_LOG(LogTemp, Error, TEXT("Pressure plate in %s is missing"), *GetOwner()->GetName())
+	}
 }
 
 
@@ -66,6 +68,7 @@ float UOpenDoor::GetTotalMassOfActorsOnPlate()
 
 	//Find Overlapping Actors
 	TArray<AActor*> OverlappingActors;
+	if (!PressurePlate) { return TotalMass; }
 	PressurePlate->GetOverlappingActors(OUT OverlappingActors);
 
 	//Iterate 
